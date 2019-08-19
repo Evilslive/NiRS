@@ -29,17 +29,13 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-'''
-#---------
-# 參數提取
-#---------
-由.hdr中讀出所需的參數, 讀取後才引入函數處理
-'''
-
 class PreProcessing():
     def __init__(self):
         pass
     
+    #---------
+    # 參數提取
+    #---------
     def references(self):
         '''選擇檔案, 並將數據轉為list,最後畫出圖'''
         # 開啟視窗
@@ -354,14 +350,6 @@ class PreProcessing():
     # Beer-Lambert Law (mBLL)
     #-------------------------    
     '''
-    前提與限制(張育唐、陳藹然，2011)：
-    1. 溶液必須是一個均質的溶液，不能存在不均勻的現象。
-    2. 溶液當中的分子彼此之間不互相作用，例如稀薄溶液。
-    3. 溶質分子不會因入射光的照射而進行反應。
-    4. 溶液必須是澄清的，也就是說不能產生散射現象。
-    5. 僅考慮光的吸收，忽略光的散射、反射等行為。
-    6. 光源使用單色的平行光。也就是每一束光是相同的波長，且通過相同長度的介質溶液，因為莫耳吸收係數會隨著波長而有所不同。
-
     Molar Extinction Coefficients [wavelength, for oxyH, for deoxyH]
     from W. B. Gratzer
     [760, 1486.5865, 3843.707] # 除以1000?

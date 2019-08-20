@@ -291,7 +291,7 @@ class PreProcessing():
             raw_        filtered_    deltaA_
         
         nirsLAB中 lf = .01 、 hf = .2
-        但實際測試 lf = .005 、 hf = .12 結果比較接近
+        但實際測試 lf = .005 、 hf = .12 結果比較接近 # 未除nyq?
         '''
         temp1 = 0.00
         temp2 = 0.00
@@ -402,7 +402,7 @@ class PreProcessing():
 
             ### A = -logT = -log(I1/T0) = 2 - log(T%) = ε*c*d*DPF +G ### 為光的被吸收度
         
-        A > 光吸收度(absorbance), 一般而言介於0-2之間 ### 機器產出的結果
+        A > 光吸收度(absorbance), 一般而言介於0-2之間
             0, 完全無吸收
             2, 百分之99的光通過時被吸收
             ΔA = A_after - A_before = log10(I_before / I_after) = ε*Δc*d*DPF +G 

@@ -1,20 +1,10 @@
-
-'''
-NiRX 數據分析
-2019/8/19 > 讀取檔案、頭動校正、濾波、計算飽和度
-https://omlc.org/spectra/hemoglobin/
-LGPL
-'''
-
 import re
 import math
 import sys
 
 import numpy as np
-#import pandas as pd
 import scipy
 from scipy.signal import butter, lfilter, filtfilt, freqz, firwin #Band-Pass
-#import ResoFit
 
 import matplotlib.pyplot as plt
 
@@ -127,16 +117,9 @@ class PreProcessing():
                 if self.S_D_Mask[i] == "1":
                     fig = plt.subplot(2,1,value[1])
                     plt.plot(self.xLabel, eval(key)[i])#, label=self.S_D_Keys[i]) # raw data
-                    #for t in self.frames:
-                    #    #plt.plot([int(t),int(t)],[0, 1]) #畫區間,[x1,x2],[y1,y2]
-                    #    plt.axvline(x=int(t),ymin=0,ymax=1,linestyle=":",color="silver") #畫trigger,[x1,x2],[y1,y2]
-            #plt.ylim(0.0, 1.0)
             fig.title.set_text("Available Channels ("+ str(eval(value[0])) +"nm)")
-            #fig.geometry("{0}x{1}+0+0".format(fig.winfo_screenwidth(), fig.winfo_screenheight())) #<<<未實現全螢幕
             plt.grid(True)
             plt.ylabel('Amplitude(V)')
-            #plt.legend(loc='best') # show label
-            #plt.pause(.05)
         plt.xlabel('frames('+str(round(float(self.Fs),2))+'Hz)')
         plt.show()
     #----------------------------------
@@ -519,7 +502,6 @@ class PreProcessing():
 
 workshop = tk.Tk()
 workshop.title("NiRx 數據分析")
-#workshop.geometry('500x300')
 workshop.resizable(0,0) # 鎖定視窗大小
 
 def clickOK():
@@ -537,10 +519,7 @@ def cutpoint0():
 def cutpoint1():
     sd.askinteger("Cut Point", "請輸入結束切截點(frames, 如80)：")
 
-
 # Introduction
-#mb.showinfo("\\^Q^/ Welcome ! @o@' ", "歡迎來到_NiRx_", detail="注意事項：\n1.\n2.\n3.") # 直接彈出
-
 preProcessing = tk.Label(workshop,bg="red",text="PreProcessing",fg="white", width=10,height=2,borderwidth=10).grid(column=0,row=0)
 level1 = tk.Label(workshop,bg="green",text="LEVEL 1.",fg="white",width=10,height=2,borderwidth=10).grid(column=1,row=0)
 level2 = tk.Label(workshop,bg="blue",text="LEVEL 2.",fg="white",width=10,height=2,borderwidth=10).grid(column=2,row=0)
@@ -567,12 +546,6 @@ for key in buttons_func:
     key = ttk.Button(workshop, 
         text=buttons_func[key][0], 
         command=buttons_func[key][3]).grid(column=buttons_func[key][1],
-                                            row=buttons_func[key][2]) # .pack() 放入容器由上而下 與 網格.grid(行, 列) 不相容
-    # state="disabled"
-
-# 可視空間 Visual-Spatial
+                                            row=buttons_func[key][2]) 
 
 workshop.mainloop() # 呼叫並維持視窗
-
-#if __name__ == "__main__":
-#    break

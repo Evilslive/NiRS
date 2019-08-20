@@ -7,7 +7,7 @@ Near-infrared Spectroscopy data analysis
 
 #### To be continued
 1. Removing artifacts from data, 經Artifacts後的區段, triggers應不列入計算
-2. Coeffiecient of Variation(CV) > List Good/Bad Channels, 排除超出標準的Channels
+2. Coeffiecient of Variation(CV) > List Good/Bad Channels, 排除超出標準的Channels(& Gain<7)
 3. 增加level 1、level 2
 
 #### Package

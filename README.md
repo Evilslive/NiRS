@@ -6,10 +6,8 @@ Near-infrared Spectroscopy data analysis
 基於nirsLAB處理數據的方式, 實現References retrieval、Spike artifacts、Bandpass filter(套用scipy)，並根據Beer-Lambert Law計算oxyHb、deoxyHb。
 
 #### Continuous
-1. Removing artifacts from data  
-   經Artifacts後的區段, triggers應不列入計算
-2. Coeffiecient of Variation(CV) > List Good/Bad Channels  
-   排除超出標準的Channels
+1. Removing artifacts from data, 經Artifacts後的區段, triggers應不列入計算
+2. Coeffiecient of Variation(CV) > List Good/Bad Channels, 排除超出標準的Channels
 3. 增加level 1、level 2
 
 #### Package

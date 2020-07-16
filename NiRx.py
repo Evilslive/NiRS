@@ -184,26 +184,7 @@ class PreProcessing():
                 pp.raw_lineplot()
             except:
                 print("try again, or ?")
-    # 跳出輸入拒絕區間的視窗
-    def reject_interval(self): 
-        pass
 
-    def semiauto_displace(self):
-        '''自動去頭動, 用次數分配處理頭動 *未完成, 目前只有直方圖*'''
-        for i in range(len(self.S_D_Mask)):  # 0 1
-            if self.S_D_Mask[i] == "1":
-                z = 1.96
-                print(min(self.raw_wl1[i]),max(self.raw_wl1[i]))
-                a = [round(i,3) for i in self.raw_wl1[i]]
-                print(np.median(a)) #中位數
-                print(scipy.stats.mode(a)[0][0]) #眾數
-                print(np.mean(self.raw_wl1[i])) #平均數
-                fig = plt.subplot(111)
-                fig.title.set_text(self.S_D_Keys[i])
-                plt.hist(self.raw_wl1[i])
-                plt.axvline(x=scipy.stats.mode(a)[0][0]+z*np.std(self.raw_wl1[i]),ymin=0,ymax=1,linestyle="--",color="red")
-                plt.axvline(x=scipy.stats.mode(a)[0][0]-z*np.std(self.raw_wl1[i]),ymin=0,ymax=1,linestyle="--",color="red")
-                plt.show()
     #----------------------------------
     # Coeffiecient of Variation(CV)
     # 依照標準分辨 Good or Bad Channels
